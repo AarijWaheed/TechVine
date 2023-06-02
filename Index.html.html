@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TechVine - Business Ideas Hub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ebebeb;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #3b0032;
+      padding: 20px;
+      color: #fff;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #3b0032;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .idea {
+      margin-bottom: 20px;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+    }
+
+    .idea h2 {
+      margin: 0;
+      color: #3b0032;
+    }
+
+    .idea p {
+      margin: 10px 0;
+      color: #666;
+    }
+
+    .idea span {
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>TechVine - Business Ideas Hub</h1>
+  </header>
+
+  <main>
+    <h2>Share Your Business Idea</h2>
+    <form id="ideaForm">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" required>
+
+      <label for="title">Idea Title:</label>
+      <input type="text" id="title" required>
+
+      <label for="description">Idea Description:</label>
+      <textarea id="description" required></textarea>
+
+      <button type="submit">Submit Idea</button>
+    </form>
+
+    <hr>
+
+    <h2>Ideas Shared by Others</h2>
+    <div id="ideasContainer">
+      <!-- Ideas will be dynamically added here -->
+    </div>
+  </main>
+
+  <script>
+    const ideaForm = document.getElementById('ideaForm');
+    const ideasContainer = document.getElementById('ideasContainer');
+
+    ideaForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const nameInput = document.getElementById('name');
+      const titleInput = document.getElementById('title');
+      const descriptionInput = document.getElementById('description');
+
+      const name = nameInput.value;
+      const title = titleInput.value;
+      const description = descriptionInput.value;
+
+      const idea = document.createElement('div');
+      idea.classList.add('idea');
+      idea.innerHTML = `
+        <h2>${title}</h2>
+        <p>${description}</p>
+        <p>Shared by: <span>${name}</span></p>
+      `;
+
+      ideasContainer.appendChild(idea);
+
+      // Clear form inputs
+      nameInput.value = '';
+      titleInput.value = '';
+      descriptionInput.value = '';
+    });
+  </script>
+</body>
+</html>
+
+
+
+
